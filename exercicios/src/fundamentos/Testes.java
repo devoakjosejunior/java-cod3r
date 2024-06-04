@@ -1,6 +1,6 @@
 package fundamentos;
 
-import java.io.Console;
+
 
 public class Testes {
 
