@@ -4,19 +4,17 @@ public class Produto {
     //atributos
     String nome;
     double preco;
-    double desconto;
+    static double desconto = 0.25;
 
     //comportamentos (metódos)
     
     //construtores (metodos especiais)
-    Produto(){}
-    Produto(String nomeInicial){
-        nome = nomeInicial;
+    Produto(){
+        
     }
-    Produto(String nomeInicial, double precoInicial, double descontoInicial){
+    Produto(String nomeInicial, double precoInicial){
         nome = nomeInicial;
         preco = precoInicial;
-        desconto = descontoInicial;
     }
 
     //metódos
