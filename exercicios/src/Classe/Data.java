@@ -1,28 +1,32 @@
 package Classe;
 
 public class Data {
-    int dia;
-    int mes;
-    int ano;
-    
-    Data(){
-        dia = 1;
-        mes = 1;
-        ano = 1970;
-    }
-    Data(int diaInicial, int mesInicial, int anoInicial){
-        dia = diaInicial;
-        mes = mesInicial;
-        ano = anoInicial;
-    }
 
+	int dia;
+	int mes;
+	int ano;
+	
+	Data() {
+		// dia = 1;
+		// mes = 1;
+		// ano = 1970;
+		this(1, 1, 1970);
+	}
+	
+	Data(int dia, int mes, int ano) {
+		this.dia = dia;
+		this.mes = mes;
+		this.ano = ano;
+	}
+	
 
-    String obterDataFormatada(){
-        return String.format("%d/%d/%d", dia, mes, ano);
-    }
+	String obterDataFormatada() {
+		final String formato = "%d/%d/%d";
+		return String.format(formato, this.dia, mes, ano);
+	}
+	
+	void imprimirDataFormatada() {
+		System.out.println(this.obterDataFormatada());
+	}
 
-    // Evite este tipo de metodo que imprime no console, pois o System.out.println não vai funcionar em uma aplicação desktop, web, mobile, apenas em console.
-    void imprimirDataFormata(){
-        System.out.println(obterDataFormatada());
-    }
 }

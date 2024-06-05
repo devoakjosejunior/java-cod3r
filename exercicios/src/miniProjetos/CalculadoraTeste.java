@@ -10,41 +10,52 @@ public class CalculadoraTeste {
         Locale.setDefault(Locale.US);
         Scanner entrada = new Scanner(System.in);
 
-        String valor1 = JOptionPane.showInputDialog("Digite um número:");
-        String operador = JOptionPane.showInputDialog("Digite o operador (+, -, *, /, %):");
-        String valor2 = JOptionPane.showInputDialog("Digite um número:");
+        String menu = "";
+        do{
+            menu = JOptionPane.showInputDialog("O que deseja fazer?\n1 - Iniciar calculadora;\n2 - Encerrar sessão;");
 
-        double num1 = Double.parseDouble(valor1);
-        double num2 = Double.parseDouble(valor2);
-        
-        Double resultado = null;
+            if(menu.equals("1")){
+                String valor1 = JOptionPane.showInputDialog("Digite um número:");
+                String operador = JOptionPane.showInputDialog("Digite o operador (+, -, *, /, %):");
+                String valor2 = JOptionPane.showInputDialog("Digite um número:");
+    
+                double num1 = Double.parseDouble(valor1);
+                double num2 = Double.parseDouble(valor2);
+                
+                Double resultado = null;
+    
+                switch (operador) {
+                    case "+":
+                        resultado = Calculadora.somar(num1, num2);
+                        JOptionPane.showMessageDialog(null, resultado);
+                        break;
+                    case "-":
+                        resultado = Calculadora.subtrair(num1, num2);
+                        JOptionPane.showMessageDialog(null, resultado);
+                        break;
+                    case "*":
+                        resultado = Calculadora.multiplicar(num1, num2);
+                        JOptionPane.showMessageDialog(null, resultado);
+                        break;
+                    case "/":
+                        resultado = Calculadora.dividir(num1, num2);
+                        JOptionPane.showMessageDialog(null, resultado);
+                        break;
+                    case "%":
+                        resultado = Calculadora.mod(num1, num2);
+                        JOptionPane.showMessageDialog(null, resultado);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Operador inválido!");
+                        break;
+                }
+            }
+           
+        }while(menu.equals("1"));
 
-        switch (operador) {
-            case "+":
-                resultado = Calculadora.somar(num1, num2);
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-            case "-":
-                resultado = Calculadora.subtrair(num1, num2);
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-            case "*":
-                resultado = Calculadora.multiplicar(num1, num2);
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-            case "/":
-                resultado = Calculadora.dividir(num1, num2);
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-            case "%":
-                resultado = Calculadora.mod(num1, num2);
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Operador inválido!");
-                break;
-        }
+        JOptionPane.showMessageDialog(null,"SESSÃO ENCERRADA!");
 
         entrada.close();
+       
     }
 }

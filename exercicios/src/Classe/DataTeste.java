@@ -11,7 +11,7 @@ public class DataTeste {
         System.out.println(dataFormatada1);
         System.out.println(d2.obterDataFormatada());
 
-        d1.imprimirDataFormata();
-        d2.imprimirDataFormata();
+        d1.imprimirDataFormatada();
+        d2.imprimirDataFormatada();
     }
 }
